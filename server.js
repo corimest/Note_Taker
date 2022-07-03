@@ -6,7 +6,7 @@ const express = require('express');
 // instantiate the server
 const app = express(); 
 // require notes data
-const { notes } = require('./miniature-eureka-main/Develop/db/db.json'); 
+const { notes } = require('./db/db.json'); 
 
 const PORT = process.env.PORT || 3001
 
