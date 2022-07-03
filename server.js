@@ -7,6 +7,8 @@ const express = require('express');
 const app = express(); 
 // require notes data
 const { notes } = require('./db/db.json'); 
+//uuid
+const uuid = require('uuid');
 
 const PORT = process.env.PORT || 3001
 
@@ -18,6 +20,7 @@ app.use(express.static('public'));
 //create new note function 
 function createNote (body, notes) {
     const note = body;  
+    note.id = uuid.v4(); 
     notes.push(note); 
     fs.writeFileSync(
         path.join(__dirname, './db/db.json'), 
@@ -35,6 +38,13 @@ function validateNote (note) {
         return false; 
     }
     return true; 
+}
+
+function deleteNote (id, notes) {
+    //const delnotes = JSON.parse(fs.readFileSync('./db/db.json')); 
+    const delNote = notes.filter(note => note.id === id)[0]; 
+    fs.writeFileSync('./db/db.json', JSON.stringify(delNote)); 
+    res.json(delNote); 
 }
 
 
@@ -56,6 +66,11 @@ app.post('/api/notes', (req, res) => {
         res.json(note); 
     }
 });
+
+app.delete('/api/notes/:id', (req, res) => {
+    const result = deleteNote(req.params.id, notes); 
+    res.json(result); 
+})
 
 //GET index.html
 app.get('/', (req, res) => {
