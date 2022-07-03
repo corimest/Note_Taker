@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3001
 //middlewarae
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.json()); 
+app.use(express.static('public')); 
 
 //create new note function 
 function createNote (body, notes) {
@@ -56,6 +57,15 @@ app.post('/api/notes', (req, res) => {
     }
 });
 
+//GET index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html')); 
+});
+
+// GET Notes.html
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/notes.html')); 
+})
 
 // Listen for requests method
 app.listen(PORT, () => {
