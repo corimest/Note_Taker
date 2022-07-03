@@ -1,1 +1,38 @@
-{"title":"jfjf","text":"jfjfjf","id":"bc2e37de-05df-4171-aa45-914315d6c6c2"}
+{
+  "notes": [
+    {
+      "title": "Test Title",
+      "text": "Test text"
+    },
+    {
+      "title": "bathe",
+      "text": "take a bath",
+      "id": "1"
+    },
+    {
+      "title": "sleep",
+      "text": "go to sleep",
+      "id": "2"
+    },
+    {
+      "title": "feed cat",
+      "text": "feed the cat",
+      "id": "3"
+    },
+    {
+      "title": "Test",
+      "text": "testing ",
+      "id": "4"
+    },
+    {
+      "title": "test 2",
+      "text": "testing notes",
+      "id": "5"
+    },
+    {
+      "title": "note2",
+      "text": "note2",
+      "id": "6"
+    }
+  ]
+}
